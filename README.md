@@ -1,4 +1,4 @@
-# Multi Task Learning example for shape type, color, position
+# Multi Task Learning example for shape type, color, position detection
 
 Implementation of a simple multi-task learner with 3 tasks (heads). Shares internal representation between different tasks (hard parameter sharing, see [2]) having the direct benefit of a lighter, faster model with less trainable parameters.
 
