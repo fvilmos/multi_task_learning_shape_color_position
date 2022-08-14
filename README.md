@@ -34,11 +34,11 @@ This implementation has ~192 k trainable parameters, compared to ~290 k  used fo
 </p>
 2. Color prediction head Confusion Matrix
 <p align="center"> 
-  <img src="info/cfm_sc_scolor.png" width="1024", height="768">
+  <img src="info/cfm_sc_scolor.png" width="1024">
 </p>
 3. Shape type prediction head Confusion Matrix
 <p align="center"> 
-  <img src="info/cfm_sc_stype.png" width="1024",  height="768">
+  <img src="info/cfm_sc_stype.png" width="1024">
 </p>
 
 ## Links
