@@ -2,25 +2,43 @@
 
 Implementation of a simple multi-task learner with 3 tasks (heads). Shares internal representation between different tasks (hard parameter sharing, see [2]) having the direct benefit of a lighter, faster model with less trainable parameters.
 
-This implementation has ~195 k trainable parameters, compared to ~290 k  used for the same tasks with a multi-headed implementation, see [3]. Compared to [3] training samples and epochs are significantly increased, after 2k cycles position accuracy is ~84% while color and shape ~99%.  
+This implementation has ~192 k trainable parameters, compared to ~290 k  used for the same tasks with a multi-headed implementation on separate branches, see [3]. Compared to [3] training samples and epochs are significantly increased, after 2k cycles position accuracy is ~84% while color and shape ~99%.  
 
 
 #### Steps:
 
-    Create toy database, generate shapes, color it
-    Normalize the generated images
-    Create the multi-task learner Keras functional model, train and test it
-
-
+1. Create toy database, generate shapes, color it
+2. Normalize the generated images / output values (for the regression head)
+3. Create the multi-task learner Keras functional model, train and test it
+4. Generate the metrics:
+    - mean_absolute_error - regression head
+    - confusion matrix, f1-score for classification heads
+5. (optional) Freeze the feature detetor part, finetune the regression head
+6. reivew the metrics
 
 #### Model:
 <p align="center"> 
-  <img src="./info/mtl_model.png" alt="" width="480"></a>
+  <img src="./info/model.png" alt="" width="480">
 </p>
 
-#### Output:
+#### Outputs:
+
+1. Regression head (position)
 <p align="center"> 
-  <img src="./info/out1.png" alt="" width="1024"></a>
+  <img src="./info/out1.png" alt="" width="1024">
+</p>
+
+1.1. Regression head (position), after fine-tuning:
+<p align="center"> 
+  <img src="./info/out2.png" alt="" width="1024">
+</p>
+2. Color prediction head Confusion Matrix
+<p align="center"> 
+  <img src="info/cfm_sc_scolor.png" width="1024", height="768">
+</p>
+3. Shape type prediction head Confusion Matrix
+<p align="center"> 
+  <img src="info/cfm_sc_stype.png" width="1024",  height="768">
 </p>
 
 ## Links
